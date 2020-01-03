@@ -1,0 +1,33 @@
+{
+  "name": "capstone-backend",
+  "version": "1.0.0",
+  "description": "Elizabeth Northrop's Ada Capstone Project.",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/north108/Capstone-Backend.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/north108/Capstone-Backend/issues"
+  },
+  "homepage": "https://github.com/north108/Capstone-Backend#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^7.3.0",
+    "moment": "^2.17.1",
+    "moment-timezone": "^0.5.13",
+    "mongoose": "^5.8.4",
+    "swagger-ui-express": "^2.0.13",
+    "sync-request": "^4.0.2",
+    "ts-node": "^8.5.4",
+    "typescript": "^3.7.4",
+    "uuid": "^3.3.3"
+  }
+}
