@@ -6,12 +6,21 @@ const objectId = require('mongodb').ObjectID;
 const CONNECTION_URL = process.env.URL;
 const DATABASE_NAME = 'usersDatabase';
 
+// import routes
+let apiRoutes = require('./api-routes')
+
 const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 var database, colletion;
+// use API routes in APP
+app.use('/api', apiRoutes)
 
 const port = process.env.PORT || 3200;
+
+app.get('/', (request: any, response: any) => 
+  response.send('Hello World with Express')
+);
 
 app.listen(port, () => {
   // console.log(`running at port ${port}`)
