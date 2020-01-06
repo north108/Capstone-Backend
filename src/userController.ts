@@ -56,7 +56,7 @@ exports.update = (request: Request, response: Response) => {
 }
 
 // update
-exports.update =(request: Request, response: Response) => {
+exports.update = (request: Request, response: Response) => {
   User.findById(request.params.user_id, (error: any, user: any) => {
     if(error) {
       response.send(error);
@@ -66,7 +66,7 @@ exports.update =(request: Request, response: Response) => {
     user.email = request.body.email;
     user.password = request.body.password;
 
-    user.save((error) => {
+    user.save((error: any) => {
       if (error) {
         response.json(error);
       } else {
@@ -76,5 +76,22 @@ exports.update =(request: Request, response: Response) => {
         });
       }
     });
+  });
+}
+
+// delete
+
+exports.delete = (request: Request, response: Response) => {
+  User.remove({
+    _id: request.params.user_id
+  }, (error: any, user: any) => {
+    if (error) {
+      response.send(error);
+    } else {
+      response.json({
+        status: 'success',
+        message: 'Contact deleted'
+      });
+    }
   });
 }
