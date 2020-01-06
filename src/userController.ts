@@ -21,7 +21,7 @@ exports.index = (request: Request, response: Response) => {
   });
 }
 
-// new
+// create
 exports.new = (request: Request, response: Response) => {
   let user = new User();
   user.firstName = request.body.firstName ? request.body.firstName : user.fistName;
@@ -38,5 +38,43 @@ exports.new = (request: Request, response: Response) => {
         data: user
       });
     }
+  });
+}
+
+// show
+exports.update = (request: Request, response: Response) => {
+  User.findById(request.params.user_id, (error: any, user: any) => {
+    if (error) {
+      response.send(error);
+    } else {
+      response.json({
+        message: 'User details',
+        data: user
+      });
+    }
+  });
+}
+
+// update
+exports.update =(request: Request, response: Response) => {
+  User.findById(request.params.user_id, (error: any, user: any) => {
+    if(error) {
+      response.send(error);
+    }
+    user.name = request.body.name ? request.body.name : user.name;
+    user.location = request.body.location;
+    user.email = request.body.email;
+    user.password = request.body.password;
+
+    user.save((error) => {
+      if (error) {
+        response.json(error);
+      } else {
+        response.json({
+          message: 'User Info updated.',
+          data: user
+        });
+      }
+    });
   });
 }
